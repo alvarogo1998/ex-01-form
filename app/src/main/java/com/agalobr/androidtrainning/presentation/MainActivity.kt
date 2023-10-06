@@ -27,28 +27,23 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exercice02)
-        saveUser()
-        getUser()
-        getUsers()
+        setupView()
+        setUpObservers()
+        viewModel.getUser(getNameInput())
     }
 
-    private fun saveUser() {
+
+    private fun setupView() {
         val saveButtom = findViewById<Button>(R.id.action_save)
         saveButtom.setOnClickListener {
-            viewModel.saveUser(User(getNameInput(), getSurnameInput()))
+            viewModel.saveUser(User(getNameInput(), getSurnameInput(), getAgeInput()))
         }
-    }
-
-    private fun getUser() {
-        val saveButtom = findViewById<Button>(R.id.action_getUser)
-        saveButtom.setOnClickListener {
+        val getUserButtom = findViewById<Button>(R.id.action_getUser)
+        getUserButtom.setOnClickListener {
             viewModel.getUser(getNameInput())
         }
-    }
-
-    private fun getUsers() {
-        val saveButtom = findViewById<Button>(R.id.action_getUsers)
-        saveButtom.setOnClickListener {
+        val getUsersButtom = findViewById<Button>(R.id.action_getUsers)
+        getUsersButtom.setOnClickListener {
             viewModel.getUsers()
         }
     }
@@ -66,6 +61,7 @@ class MainActivity : AppCompatActivity() {
     private fun bindData(user: User) {
         setNameInput(user.name)
         setSurnameInput(user.surname)
+        setAgeInput(user.age)
     }
 
     private fun setNameInput(name: String) {
@@ -76,9 +72,14 @@ class MainActivity : AppCompatActivity() {
         findViewById<EditText>(R.id.input_surname).setText(surname)
     }
 
+    private fun setAgeInput(age: String) {
+        findViewById<EditText>(R.id.input_age).setText(age)
+    }
+
     private fun getNameInput(): String = findViewById<EditText>(R.id.input_name).text.toString()
     private fun getSurnameInput(): String =
         findViewById<EditText>(R.id.input_surname).text.toString()
+
     private fun getAgeInput(): String =
         findViewById<EditText>(R.id.input_age).text.toString()
 }

@@ -30,9 +30,9 @@ class MainViewModel(
 
     /*La corrutina por defecto nos coje un hilo, si queremos asegurarnos de usar un hilo secundarion pasaremos
     * el Dispatchers.IO el cual es un hilo secundario, OJO cuidado con Dispatchers.Main que se ejecutaria en el hilo principal*/
-    fun getUser(user: User) {
+    fun getUser(username: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            getUserUseCase(user).fold(
+            getUserUseCase(username).fold(
                 { responseError(it) },
                 { responseSuccessUser(it) }
             )
@@ -68,6 +68,6 @@ class MainViewModel(
     data class Uistate(
         val errorApp: ErrorApp? = null,
         val isLoading: Boolean = false,
-        val user : User? = null
+        val user: User? = null
     )
 }
