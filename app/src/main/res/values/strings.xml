@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Android Trainning</string>
+    <string name="home">Hello Word!</string>
+    <string name="text1">texto1</string>
+    <string name="text2">texto2</string>
+    <string name="text3">texto3</string>
+    <string name="text4">texto4</string>
+    <string name="imgAvatar">avatarImg</string>
+    <string name="name">Nombre</string>
+    <string name="surname">Apellidos</string>
+    <string name="age">Edad</string>
+    <string name="birthday">Fecha de Nacimiento</string>
+    <string name="action_save">Guardar</string>
+    <string name="action_getUser">Obtener Usuario</string>
+    <string name="action_getUsers">Obtener Usuarios</string>
+    <string name="action_clear">Limpiar Usuarios</string>
+</resources>
